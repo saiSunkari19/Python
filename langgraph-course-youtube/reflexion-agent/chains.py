@@ -48,7 +48,9 @@ llm = ChatOpenAI(
 
 first_reponder_chain = first_responder_prompt_template | llm.bind_tools(
     tools= [AnswerQuestion], tool_choice= "AnswerQuestion"
-) | pydantic_parser
+)
+
+validator = PydanticToolsParser(tools=[AnswerQuestion])
 
 
 
@@ -68,7 +70,7 @@ revise_instructions = """Revise your previous answer using the new information
 
 revise_chain = actor_prompt_template.partial(
     first_instruction=revise_instructions
-) | llm.bind_tools(tools=[ReviseAnswer], tool_choice="ReviseAnswer") | pydantic_parser
+) | llm.bind_tools(tools=[ReviseAnswer], tool_choice="ReviseAnswer") 
 
 
 response = first_reponder_chain.invoke({

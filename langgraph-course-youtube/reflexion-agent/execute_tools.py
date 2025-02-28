@@ -49,36 +49,36 @@ def execute_tools(state: List[BaseMessage]) -> List[ToolMessage]:
     return tool_messages
 
 
-raw_res = execute_tools(
-        state=[
-            HumanMessage(
-                content="Write about how small business can leverage AI to grow"
-            ),
-            AIMessage(
-                content="", 
-                tool_calls=[
-                    {
-                        "name": "AnswerQuestion",
-                        "args": {
-                            'answer': '', 
-                            'search_queries': [
-                                    'AI tools for small business', 
-                                    'AI in small business marketing', 
-                                    'AI automation for small business'
-                            ], 
-                            'reflection': {
-                                'missing': '', 
-                                'superfluous': ''
-                            }
-                        },
-                        "id": "call_KpYHichFFEmLitHFvFhKy1Ra",
-                    }
-                ],
-            ),
-        ]
-    )
+# raw_res = execute_tools(
+#         state=[
+#             HumanMessage(
+#                 content="Write about how small business can leverage AI to grow"
+#             ),
+#             AIMessage(
+#                 content="", 
+#                 tool_calls=[
+#                     {
+#                         "name": "AnswerQuestion",
+#                         "args": {
+#                             'answer': '', 
+#                             'search_queries': [
+#                                     'AI tools for small business', 
+#                                     'AI in small business marketing', 
+#                                     'AI automation for small business'
+#                             ], 
+#                             'reflection': {
+#                                 'missing': '', 
+#                                 'superfluous': ''
+#                             }
+#                         },
+#                         "id": "call_KpYHichFFEmLitHFvFhKy1Ra",
+#                     }
+#                 ],
+#             ),
+#         ]
+#     )
 
 
-print(raw_res, 'raw')
-res = json.loads(raw_res[0].content)
-print(res)
+# print(raw_res, 'raw')
+# res = json.loads(raw_res[0].content)
+# print(res)
