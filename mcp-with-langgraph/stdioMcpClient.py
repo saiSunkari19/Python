@@ -38,7 +38,7 @@ async def main():
             tools = await load_mcp_tools(session)
             
             agent  = create_react_agent(model, tools)
-            agent_resopnse  = agent.invoke({
+            agent_resopnse  = await agent.invoke({
                 "messages": "What is (9x2) /3 ?"
             })
             
